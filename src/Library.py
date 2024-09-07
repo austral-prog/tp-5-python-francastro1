@@ -40,7 +40,8 @@ class Library:
                 book.set_available(False)
                 self.__checked_out_books.append(book)
                 return f"User {dni} checked out book {isbn}"
-            return f'Book {isbn} is not available'
+            else:
+                return f'Book {isbn} is not available'
 
     # 2.2 Check in book
     def check_in_book(self, isbn: str, dni: int, returned_date: str) -> str:
@@ -52,6 +53,8 @@ class Library:
                     if self.__checked_out_books[i] == book:
                         del self.__checked_out_books[i]
                 return f"Book {isbn} checked in by user {dni}"
+            else:
+                return ""
 
     # Utils
     def add_user(self, dni: int, name: str) -> None:

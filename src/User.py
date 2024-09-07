@@ -1,5 +1,5 @@
 class User:
-    def __init__(self, dni, name, number_of_checkouts=0, number_of_checkins=0) -> None:
+    def __init__(self, dni: int, name: str, number_of_checkouts: int =0, number_of_checkins: int =0) -> None:
         self.__dni: int = dni
         self.__name: str = name
         self.__number_of_checkouts: int = number_of_checkouts
