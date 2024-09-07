@@ -61,3 +61,4 @@ class LibraryTests(unittest.TestCase):
         assert self.library.get_books()[0].is_available() == True  # The book should now be available again
         assert len(self.library.get_checked_out_books()) == 0
         assert len(self.library.get_checked_in_books()) == 1
+
