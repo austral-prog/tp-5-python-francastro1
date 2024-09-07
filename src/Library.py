@@ -36,12 +36,14 @@ class Library:
     # 2.1 Check out book
     def check_out_book(self, isbn: str, dni: int, due_date: str) -> str:
         for book in self.__books:
-            if book not in self.__checked_out_books:
-                book.set_available(False)
-                self.__checked_out_books.append(book)
-                return f"User {dni} checked out book {isbn}"
-            else:
-                return f'Book {isbn} is not available'
+           if book.get_isbn() == isbn:
+                if book not in self.__checked_out_books:
+                    book.set_available(False)
+                    self.__checked_out_books.append(book)
+                    return f"User {dni} checked out book {isbn}"
+                else:
+                    return f'Book {isbn} is not available'
+                return f"Book {isbn} not gound in the library"
 
     # 2.2 Check in book
     def check_in_book(self, isbn: str, dni: int, returned_date: str) -> str:
@@ -52,7 +54,8 @@ class Library:
                 for i in range(len(self.__checked_out_books)):
                     if self.__checked_out_books[i] == book:
                         del self.__checked_out_books[i]
-                return f"Book {isbn} checked in by user {dni}"
+                        return f"Book {isbn} checked in by user {dni}"
+                return ""
             else:
                 return ""
 
