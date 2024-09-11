@@ -43,7 +43,9 @@ class Library:
                     return f"User {dni} checked out book {isbn}"
                 else:
                     return f'Book {isbn} is not available'
-                return f"Book {isbn} not gound in the library"
+           else:
+                return f"Book {isbn} not found in the library"
+        return ""
 
     # 2.2 Check in book
     def check_in_book(self, isbn: str, dni: int, returned_date: str) -> str:
@@ -58,6 +60,7 @@ class Library:
                 return ""
             else:
                 return ""
+        return ""
 
     # Utils
     def add_user(self, dni: int, name: str) -> None:
